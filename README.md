@@ -1,86 +1,52 @@
-# Garmin Performance AI - POC Project
+# Garmin Performance AI
 
-## Overview
-A Neural Network-based Performance Prediction system for Garmin Connect+ premium subscription, demonstrating Cloudera Machine Learning (CML) capabilities on Garmin's existing 1200-node CDP infrastructure.
+A proof-of-concept for predicting running performance using machine learning. Built for Garmin Connect+ to help runners train smarter.
 
-## Business Value
-- **Target**: Increase Connect+ conversion from 3% to 8%, reduce churn from 15% to <5%
-- **ROI**: Justifies $6.99/month premium subscription
-- **Competition**: Matches Apple Watch AI and Whoop ($30/month) capabilities
+## What it does
 
-## Features
-- **Race Finish Time Prediction**: 5K, 10K, Half Marathon, Marathon (±5% accuracy)
-- **Training Readiness Score**: Daily 0-100 score with traffic light system
-- **Injury Risk Assessment**: Low/Moderate/High risk levels with specific concerns
-- **Optimal Pacing Strategy**: 10 splits for any race distance
-- **VO2 Max Trajectory**: 30-day fitness projection
+- Predicts race finish times (5K, 10K, Half Marathon, Marathon)
+- Provides training readiness scores
+- Assesses injury risk
+- Suggests optimal pacing strategies
+- Projects fitness trends
 
 ## Quick Start
 
-### Setup
 ```bash
-# Create virtual environment
+# Setup
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
+source venv/bin/activate
 pip install -r requirements.txt
 
-# Configure environment
-cp .env.example .env
-# Add your OpenAI API key to .env
+# Run the demo
+streamlit run demo/streamlit_app_final.py
 ```
 
-### Generate Synthetic Data
-```bash
-python data/synthetic_generator.py --users 100 --days 90 --output data/sample_data/
-```
+Then open http://localhost:8501 in your browser.
 
-### Train Model
-```bash
-python models/training.py --data data/sample_data/ --epochs 50 --batch-size 32
-```
+## Tech Stack
 
-### Run Demo
-```bash
-streamlit run demo/streamlit_app.py --server.port 8501
-```
+- Python with Streamlit for the web interface
+- Random Forest models for predictions
+- OpenAI GPT-4 for natural language explanations
+- Synthetic training data for 100 sample athletes
 
 ## Project Structure
+
 ```
-├── data/                   # Data generation and processing
-├── models/                 # Neural network architecture
-├── explainer/              # LLM-based explanations
-├── demo/                   # Streamlit demo interface
-├── cdp_integration/        # Cloudera deployment guides
-├── tests/                  # Test suite
-└── notebooks/              # Development notebooks
+demo/                 # Streamlit web app
+models/               # ML models and training code
+data/                 # Data generation and processing
+explainer/            # AI coach and explanations
 ```
 
-## Technical Stack
-- **Python 3.13.3** with TensorFlow/Keras
-- **Streamlit** for interactive demo
-- **OpenAI GPT-4o** for explanations
-- **MLflow** for experiment tracking
-- **Deployment**: Cloudera Machine Learning (CML)
+## Demo Users
 
-## CDP Integration
-Designed to run on Garmin's existing 1200-node CDP infrastructure:
-- **Data Flow**: NiFi/Kafka for real-time sensor ingestion
-- **Data Engineering**: Spark for feature computation
-- **Machine Learning**: CML for model training/serving
-- **Data Warehouse**: Impala for historical analysis
+Try these personas in the app:
+- Elite Emma - competitive athlete
+- Recreational Rachel - weekend warrior  
+- Beginner Ben - just starting out
 
-## Performance Targets
-- Model accuracy: ±5% for race predictions
-- Inference latency: <100ms
-- Model size: <10MB (edge deployable)
-- Scales: 100 → 10K → 100M users
+## Author
 
-## Development Team
-- **Project Lead**: Neelabh Pant - Director, Global AI Industry Solutions, Cloudera
-- **Focus**: Retail & Fitness Industry Solutions
-- **Timeline**: 2-week POC
-
-## License
-Proprietary - Cloudera & Garmin Confidential
+Neelabh Pant
