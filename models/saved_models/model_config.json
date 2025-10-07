@@ -1,0 +1,12 @@
+{
+  "model_type": "Random Forest Ensemble",
+  "version": "1.0",
+  "created": "2024-09-24",
+  "models": {
+    "race": "rf_race_model.pkl",
+    "health": "rf_health_model.pkl", 
+    "trend": "rf_trend_model.pkl"
+  },
+  "scaler": "scaler.pkl",
+  "description": "Production-ready RF models for Garmin Performance AI"
+}

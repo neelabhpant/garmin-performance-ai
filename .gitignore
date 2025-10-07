@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+env/
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Environment
+.env
+*.env
+
+# ML/Data
+*.h5
+*.pkl.backup
+*.checkpoint
+mlruns/
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Reports and Documentation (internal use only)
+EXECUTIVE_SUMMARY.md
+PROJECT_SUMMARY.md
+TECHNICAL_WALKTHROUGH.md
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+
+# folder
+artifacts/

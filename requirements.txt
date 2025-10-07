@@ -1,0 +1,39 @@
+# Core dependencies
+numpy
+pandas
+polars
+
+# Machine Learning
+tensorflow
+scikit-learn
+mlflow
+shap
+
+# Data validation
+pydantic
+
+# Visualization & UI
+streamlit
+plotly
+matplotlib
+seaborn
+
+# LLM integrations
+openai
+anthropic
+
+# Testing
+pytest
+pytest-cov
+
+# Development tools
+black
+isort
+mypy
+
+# API & Web
+requests
+python-dotenv
+
+# Date and time
+python-dateutil
