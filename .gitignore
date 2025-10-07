@@ -37,6 +37,7 @@ mlruns/
 EXECUTIVE_SUMMARY.md
 PROJECT_SUMMARY.md
 TECHNICAL_WALKTHROUGH.md
+CLAUDE.md
 
 # Temporary files
 *.tmp
