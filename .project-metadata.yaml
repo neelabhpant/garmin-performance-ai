@@ -1,0 +1,36 @@
+name: Garmin Performance AI
+description: AI-powered performance prediction system for runners
+author: Neelabh Pant
+specification_version: 1.0
+
+runtimes:
+  - editor: PBJ Workbench
+    kernel: Python 3.10
+    edition: Standard
+
+environment_variables:
+  OPENAI_API_KEY: ${OPENAI_API_KEY}
+  USE_LLM_CACHE: "true"
+  OPENAI_MODEL: "gpt-4o-mini"
+  OPENAI_MAX_TOKENS: "500"
+  OPENAI_TEMPERATURE: "0.7"
+
+tasks:
+  - type: run_session
+    name: "Generate Training Data"
+    script: data/synthetic_generator.py
+    arguments: "--users 100 --days 90"
+    kernel: python3
+    
+  - type: run_session  
+    name: "Train Models"
+    script: models/train_rf_separate.py
+    kernel: python3
+    
+  - type: start_application
+    name: "Garmin Performance AI Demo"
+    subdomain: garmin-ai
+    script: demo/streamlit_app_final.py
+    kernel: python3
+    cpu: 2
+    memory: 4
